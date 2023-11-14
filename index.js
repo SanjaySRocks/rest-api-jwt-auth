@@ -4,7 +4,6 @@ const connectDB = require("./db/mongooseConnection");
 const User = require("./models/User");
 const bcrypt = require('bcryptjs');
 const { generateToken, authenticateToken } = require("./middleware/jwtAuth")
-
 const app = express();
 
 app.use(cors());
@@ -89,7 +88,6 @@ app.post("/api/login", async (req, res) => {
 
 app.get("/api/user", authenticateToken, async (req, res)=>{
   // const foundUser = await User.findOne({_id: req.user._id});
-
   res.status(200).send(req.user);
 })
 
