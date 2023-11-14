@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const config = require("../config.js")
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://restapi:restapi@c1.i2rx4.mongodb.net/restapi?retryWrites=true&w=majority');
+    await mongoose.connect(config.MONGODB_URL);
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('MongoDB connection error:', error);
